@@ -1,0 +1,45 @@
+<section data-ng-controller="StoresController" ng-init="list()">
+
+    <h3>商铺列表</h3>
+
+    <table ng-table="storeInfo" show-filter="true" class="table table-bordered ng-table-responsive">
+
+        <tr ng-repeat="store in $data">
+            <td width="30" style="text-align: center" header="'ng-table/headers/checkbox.html'">
+                <input type="checkbox" ng-model="checkboxes.items[seller.id]" />
+            </td>
+
+            <td data-title="'ID'" style="text-align: center">
+                {{store.id}}
+            </td>
+            <td data-title="'省'" style="text-align: center">
+                {{store.province}}
+            </td>
+            <td data-title="'市'" style="text-align: center">
+                {{store.city}}
+            </td>
+            <td data-title="'区'" style="text-align: center">
+                {{store.dist}}
+            </td>
+            <td data-title="'渠道'" style="text-align: center">
+                {{store.channel}}
+            </td>
+            <td data-title="'门店名称'" style="text-align: center">
+                {{store.name}}
+            </td>
+            <td data-title="'地址'" style="text-align: center">
+                {{store.address}}
+            </td>
+
+            <td data-title="'操作'" style="text-align: center">
+                <a class="btn btn-sm" ng-href="#!/stores/{{store.id}}/update"> <i class="glyphicon glyphicon-pencil"></i>编辑</a>
+                <botton class="btn btn-sm btn-danger" ng-click="delete('{{store.id}}')"> <i class="glyphicon glyphicon-trash"></i>删除</botton>
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+        <input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value="" />
+    </script>
+
+</section>

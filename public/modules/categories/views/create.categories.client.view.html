@@ -1,0 +1,25 @@
+<section class="row" data-ng-controller="CategoriesController">
+    <h3>Edit Category</h3>
+    <div>
+        <form name="categoryForm" data-ng-submit="create()" class="form-horizontal" autocomplete="off">
+            <fieldset>
+                <div class="form-group">
+                    <label for="Name" class="col-md-2 control-label">类目名称</label>
+                    <div class="col-md-10">
+                        <input type="text" id="Name" name="name" class="form-control" data-ng-model="name" placeholder="类目名称">
+                    </div>
+                </div>
+                <div class="text-center form-group">
+                    <button type="submit" class="btn btn-large btn-primary">保存</button>
+                </div>
+                <div data-ng-show="success" class="text-center text-success">
+                    <strong>Profile Saved Successfully</strong>
+                </div>
+                <div data-ng-show="error" class="text-center text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
+

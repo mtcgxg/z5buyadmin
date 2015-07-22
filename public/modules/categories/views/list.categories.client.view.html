@@ -1,0 +1,30 @@
+<section data-ng-controller="CategoriesController" ng-init="list()">
+
+    <h3>类目列表</h3>
+
+    <table ng-table="categoryInfo" show-filter="true" class="table ng-table-responsive table-bordered">
+
+        <tr ng-repeat="category in $data">
+            <td width="30" style="text-align: center" header="'ng-table/headers/checkbox.html'">
+                <input type="checkbox" ng-model="checkboxes.items[seller.id]" />
+            </td>
+
+            <td data-title="'ID'" style="text-align: center" sortable="'id'">
+                {{category.id}}
+            </td>
+            <td data-title="'类目名称'" style="text-align: center" sortable="'id'">
+                {{category.name}}
+            </td>
+
+            <td data-title="'操作'" style="text-align: center">
+                <a class="btn btn-sm" ng-href="#!/categories/{{category.id}}/update"> <i class="glyphicon glyphicon-pencil"></i>编辑</a>
+                <botton class="btn btn-sm btn-danger" ng-click="delete('{{category.id}}')"> <i class="glyphicon glyphicon-trash"></i>删除</botton>
+            </td>
+        </tr>
+    </table>
+
+    <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+        <input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value="" />
+    </script>
+
+</section>
